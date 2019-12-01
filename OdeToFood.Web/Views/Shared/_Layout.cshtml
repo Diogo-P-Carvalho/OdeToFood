@@ -25,10 +25,17 @@
         </div>
     </nav>
     <div class="container body-content mt-3">
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["Message"]
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            @RenderSection("footer", required: false)
         </footer>
     </div>
 

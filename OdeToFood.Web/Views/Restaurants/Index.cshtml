@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OdeToFood.Data.Models.Restaurant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index";    
 }
 
 <h2>Index</h2>
@@ -9,7 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+@foreach(var item in Model)
+{
+    @Html.Partial("_RestaurantSummary", item)
+}
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -30,4 +36,8 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+@*@section footer {
+    <div>This is a custom footer</div>
+}*@
